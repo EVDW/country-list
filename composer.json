@@ -1,34 +1,18 @@
 {
-    "name": "umpirsky/country-list",
+    "name": "evdw/country-list",
     "type": "library",
-    "description": "List of all countries with names and ISO 3166-1 codes in all languages and data formats.",
+    "description": "This library allow you to get countries names and ISO codes in all languages for php usage.",
     "license": "MIT",
     "authors": [
         {
-            "name": "Saša Stamenković",
-            "email": "umpirsky@gmail.com"
+            "name": "EVDW",
+            "email": "emmanuelle.collet@knplabs.com"
         }
     ],
     "require": {
         "php": "^7.0"
-    },
-    "require-dev": {
-        "umpirsky/list-generator": "^1.2",
-        "slowprog/composer-copy-file": "^0.2",
-        "symfony/locale": "^2.7|^3.0"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "SlowProg\\CopyFile\\ScriptHandler::copy"
-        ],
-        "post-update-cmd": [
-            "SlowProg\\CopyFile\\ScriptHandler::copy"
-        ]
-    },
-    "extra": {
-        "copy-file": {
-            "vendor/umpirsky/list-generator/Dockerfile": "./",
-            "vendor/umpirsky/list-generator/docker-compose.yml": "./"
-        }
+    }, 
+    "autoload": {
+        "psr-4": { "EVDW\\": "src" }
     }
 }

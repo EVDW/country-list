@@ -1,61 +1,31 @@
-<h3 align="center">
-    <a href="https://github.com/umpirsky">
-        <img src="https://farm2.staticflickr.com/1709/25098526884_ae4d50465f_o_d.png" />
-    </a>
-</h3>
-<p align="center">
-  <a href="https://github.com/umpirsky/Symfony-Upgrade-Fixer">symfony upgrade fixer</a> &bull;
-  <a href="https://github.com/umpirsky/Twig-Gettext-Extractor">twig gettext extractor</a> &bull;
-  <a href="https://github.com/umpirsky/wisdom">wisdom</a> &bull;
-  <a href="https://github.com/umpirsky/centipede">centipede</a> &bull;
-  <a href="https://github.com/umpirsky/PermissionsHandler">permissions handler</a> &bull;
-  <a href="https://github.com/umpirsky/Extraload">extraload</a> &bull;
-  <a href="https://github.com/umpirsky/Gravatar">gravatar</a> &bull;
-  <a href="https://github.com/umpirsky/locurro">locurro</a> &bull;
-  <b>country list</b> &bull;
-  <a href="https://github.com/umpirsky/Transliterator">transliterator</a>
-</p>
+Country List (by EVDW)
+======================
 
-Country List
-============
+This library allow you to get countries names and ISO codes in all languages for php usage.
 
-List of all countries with names and ISO 3166-1 codes in all languages and all data formats.
+## Installing
 
-Formats Available
------------------
-
-- Text
-- JSON
-- YAML
-- XML
-- HTML
-- CSV
-- SQL
-    * MySQL
-    * PostgreSQL
-    * SQLite
-- PHP
-- XLIFF
-
-Multilingual
-------------
-
-All formats are also available in multiple languages, please find full language list [here](https://github.com/umpirsky/country-list/tree/master/data).
-
-Build
------
-
-Country list is available out of the box, but if you want to submit patches, add new formats,
-update data source or contribute in any other way, you will probably want to rebuild the list:
-
-```bash
-$ docker-compose run php /var/www/html/bin/build -v
+``` sh
+$ composer require evdw/country-list
 ```
 
-Other Interesting Lists
------------------------
+## Using
 
-* [Currency List](https://github.com/umpirsky/currency-list)
-* [Language List](https://github.com/umpirsky/language-list)
-* [Locale List](https://github.com/umpirsky/locale-list)
-* [TLD List](https://github.com/umpirsky/tld-list)
+Get a country names list in a specific language:
+``` php
+use EVDW\CountriesFactory;
+
+$countriesFactory = new CountriesFactory;
+$countriesFactory->getCountries('fr'); // Return a countries array in french
+
+```
+
+Get a country iso code, by specifying the language in which the country is written:
+``` php
+use EVDW\CountriesFactory;
+
+$countriesFactory = new CountriesFactory;
+$countriesFactory->getIsoCode('fr', 'france'); // Return the french ISO code
+```
+
+If the locale or the country name do not exist, no errors are throw, it returns null or empty array.
